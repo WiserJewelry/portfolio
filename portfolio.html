@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wiser Jewelry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #7f5af0;
+      --bg: #121212;
+      --text: #eaeaea;
+      --card: #1e1e1e;
+      --caption-bg: rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+
+    nav {
+      backdrop-filter: blur(12px);
+      background-color: rgba(30, 30, 30, 0.7);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .nav-links a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .section {
+      display: none;
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+   .gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: black; /* Changed from var(--card) */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--caption-bg);
+      color: #fff;
+      padding: 0.75rem 1rem;
+      font-weight: 500;
+      font-size: 1rem;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+.gallery-item.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery-item.centered img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+    .gallery-item:hover .caption {
+      opacity: 1;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .card h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .card p {
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .ig-button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .ig-button:hover {
+      background-color: #6844e0;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      margin: 4rem 0 2rem;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        margin-top: 0.8rem;
+      }
+
+      .nav-links a {
+        margin-left: 0;
+        margin-right: 1rem;
+      }
+    }
+  </style>
+  <link rel="icon" href="https://raw.githubusercontent.com/JADEISDEAD/i-just-needed-the-photo/refs/heads/main/diamond-removebg-preview.png" type="image/x-icon">
+</head>
+<body>
+
+  <nav>
+    <h1>Wiser Jewelry</h1>
+    <div class="nav-links">
+      <a href="#gallery" onclick="showSection('gallery')">Gallery</a>
+      <a href="#about" onclick="showSection('about')">About</a>
+      <a href="#contact" onclick="showSection('contact')">Contact</a>
+    </div>
+  </nav>
+
+  <div id="gallery" class="section active">
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="https://raw.githubusercontent.com/JADEISDEAD/i-just-needed-the-photo/refs/heads/main/portfolio/jetsetter.PNG" alt="Elegant gold ring">
+        <div class="caption">JETSETTER pendant</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://raw.githubusercontent.com/JADEISDEAD/i-just-needed-the-photo/refs/heads/main/portfolio/barbed%20wire%20link.PNG" alt="Minimalist silver necklace">
+        <div class="caption">Barbed wire tennis necklace</div>
+      </div>
+      <div class="gallery-item centered">
+        <img src="https://raw.githubusercontent.com/JADEISDEAD/i-just-needed-the-photo/refs/heads/main/portfolio/earrings.PNG" alt="gem earrings">
+        <div class="caption">Gemstone Earrings</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://raw.githubusercontent.com/JADEISDEAD/i-just-needed-the-photo/refs/heads/main/portfolio/b%26m%20filter.PNG" alt="bm filter">
+        <div class="caption">Diamond Black and Mild cigar filter</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://raw.githubusercontent.com/JADEISDEAD/i-just-needed-the-photo/refs/heads/main/portfolio/glocky2.PNG" alt="Glock">
+        <div class="caption">Opal and baguette diamond glock</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://raw.githubusercontent.com/JADEISDEAD/i-just-needed-the-photo/refs/heads/main/portfolio/im%20cooking.PNG" alt="loupe">
+        <div class="caption">Custom dragon jewelers loupe</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://raw.githubusercontent.com/JADEISDEAD/i-just-needed-the-photo/refs/heads/main/portfolio/modern%20crap.PNG" alt="modern">
+        <div class="caption">Modern ring</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://raw.githubusercontent.com/JADEISDEAD/i-just-needed-the-photo/refs/heads/main/portfolio/opal%20pendant.PNG" alt="opal pendant">
+        <div class="caption">Opal slide pendant</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://raw.githubusercontent.com/JADEISDEAD/i-just-needed-the-photo/refs/heads/main/portfolio/raytraced.PNG" alt="jade">
+        <div class="caption">Jade ring</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://raw.githubusercontent.com/JADEISDEAD/i-just-needed-the-photo/refs/heads/main/portfolio/razor%20ruby.PNG" alt="razor">
+        <div class="caption">Diamond and ruby razor pendant</div>
+      </div>
+<div class="gallery-item centered">
+        <img src="https://raw.githubusercontent.com/JADEISDEAD/i-just-needed-the-photo/refs/heads/main/portfolio/star%20link%20rendered.PNG" alt="star">
+        <div class="caption">Diamond fancy star link chain</div>
+</div>
+<div class="gallery-item centered">
+        <img src="https://raw.githubusercontent.com/JADEISDEAD/i-just-needed-the-photo/refs/heads/main/portfolio/stuff.PNG" alt="star fancy">
+        <div class="caption">Diamond fancy star link chain<br>Fancy star link and tennis chain
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="about" class="section">
+    <div class="card">
+      <h2>About Me</h2>
+      <p>
+        Wiser is a jewelry designer who blends HipHop aesthetic with gothic undertones. My work is inspired by the outrageous chains, rings and pendants of the rap industry, and emo/punk fashion. Each piece is designed in a variety of CAD programs and are fabricated by me.
+        <br><br>
+        Not Dead Yet (NDY) is a punk, emo, rap inspired branding under the Wiser Jewelry umbrella that seeks to embody an expression of identity, rebellion, and resilience. NDY channels underground energy into bold, experimental pieces that speak for those still fighting, feeling, and evolving. It’s jewelry with a pulse.
+      </p>
+    </div>
+  </div>
+
+  <div id="contact" class="section">
+    <div class="card">
+      <h2>Contact</h2>
+      <p>Email: <a style="color: var(--text);">wiserjewelrydesigns@gmail.com</a></p>
+      <a class="ig-button" href="https://www.instagram.com/wiserjewelry/" target="_blank">Visit My Instagram</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Wiser Jewelry — All Rights Reserved
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+      window.location.hash = id; 
+    }
+
+   
+    function loadSectionFromHash() {
+      if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        showSection(id);
+      }
+    }
+
+  
+    window.onload = loadSectionFromHash;
+  </script>
+
+</body>
+</html>
